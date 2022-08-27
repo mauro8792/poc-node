@@ -1,5 +1,5 @@
 
-    const { UserRepository } = require('../repositories/user.repository.js')
+
 
 describe ('primer tests', () =>{
     
