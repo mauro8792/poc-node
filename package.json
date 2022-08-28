@@ -6,12 +6,14 @@
   "type": "module",
   "scripts": {
     "test": "jest",
+    "coverage": "jest -i --coverage",
+    "start": "node src/server.js",
     "pm2": "pm2 start src/index.js",
     "pm2:logs": "pm2 logs",
     "pm2:plus": "pm2 plus",
     "delete": "pm2 delete all",
     "dev": "nodemon  --exec babel-node src/server.js"
-  },
+  },  
   "keywords": [],
   "author": "",
   "license": "ISC",
