@@ -1,10 +1,10 @@
 
+// import {UserRepository} from '../repositories/user.repository.js'
 
-
-describe ('primer tests', () =>{
+describe ('Tests User Repository', () =>{
     
-    it('Test userRepository findAll()', ()=>{
+    it('Test findAll()', ()=>{
         
-        console.log('a ver que sale', );
+        console.log(' Running -->', );
     })
 })

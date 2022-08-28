@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:  
+  mysql_server:
+    container_name: db_container
+    image: mysql:latest
+    restart: always
+    ports:
+      - "3307:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=example
+    volumes:
+      - db:/var/lib/mysql
+   
+  app:
+    container_name: app_container
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 3001:3001
+    volumes:
+      - .:/app
+      - '/app/node_modules'
+    depends_on:
+      - mysql_server
+    environment:
+      - DB_HOST=db_container
+      - DB_USER=root
+      - DB_PASSWORD=root
+      - DB_NAME=example
+      - DB_PORT=3306
+    stdin_open: true
+    tty: true
+volumes: 
+  db:
