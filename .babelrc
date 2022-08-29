@@ -4,12 +4,22 @@
       "@babel/preset-env",
       {
         "targets": {
-          "node": "current"
+          "node": "current",
+          "esmodules": false
         },
         "modules": false,
         "debug": true,
         "useBuiltIns": false
       }
     ]
-  ]
+  ],
+  
+    "env": {
+      "test": {
+        "plugins": ["transform-es2015-modules-commonjs"]
+      }
+    }
+  
+  
 }
+
