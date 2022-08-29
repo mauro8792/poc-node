@@ -28,5 +28,4 @@ const UserModel = Database.define(
     timestamps: true,
   }
 );
-await UserModel.sync({ force: true });
 export { UserModel };

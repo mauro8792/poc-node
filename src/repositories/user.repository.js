@@ -9,7 +9,7 @@ export class UserRepository {
 
   async findAll(findOptions) {
     try {
-      const { offset, limit = 10, name, lastName, age } = findOptions;
+      const { offset, limit = 10, name, lastName, age } = findOptions || {};
 
       const find = {
         ...(name ? { name: { [Op.like]: `%${name}%` } } : {}),
@@ -17,9 +17,7 @@ export class UserRepository {
         ...(age ? { age: { [Op.like]: `%${age}%` } } : {}),
       };
 
-      const where = find;
-      console.log("{ where, limit, offset }", { where, limit, offset });
-      const users = await UserModel.findAll({ where, limit, offset });
+      const users = await UserModel.findAll({ ...find, limit, offset });
 
       return users;
     } catch (error) {
